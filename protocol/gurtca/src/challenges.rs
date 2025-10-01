@@ -3,7 +3,7 @@ use crate::client::{Challenge, GurtCAClient};
 
 pub async fn complete_dns_challenge(challenge: &Challenge, client: &GurtCAClient) -> Result<()> {
     println!("Please add this TXT record to your domain:");
-    println!("   1. Go to gurt://49.12.6.233:4878 (or your DNS server)");
+    println!("   1. Go to gurt://49.12.6.233:8080 (or your DNS server)");
     println!("   2. Login and navigate to your domain: {}", challenge.domain);
     println!("   3. Add TXT record:");
     println!("      Name: _gurtca-challenge");
@@ -30,7 +30,7 @@ async fn verify_dns_txt_record(domain: &str, expected_value: &str, client: &Gurt
     });
     
     let response = client
-        .post_json("gurt://49.12.6.233:4878/resolve-full", &request)
+        .post_json("gurt://49.12.6.233:8080/resolve-full", &request)
         .await?;
     
     if response.is_success() {
