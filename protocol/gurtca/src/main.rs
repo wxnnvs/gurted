@@ -12,7 +12,7 @@ struct Cli {
     #[command(subcommand)]
     command: Commands,
     
-    #[arg(long, default_value = "gurt://dns.web")]
+    #[arg(long, default_value = "gurt://49.12.6.233:4878")]
     ca_url: String,
 }
 
