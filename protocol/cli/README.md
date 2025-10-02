@@ -44,7 +44,7 @@ For production deployments, you can use the Gurted Certificate Authority to get 
 
 3. **Follow the DNS challenge instructions:**
    When prompted, add the TXT record to your domain:
-   - Go to gurt://49.12.6.233:4878 (or your DNS server)
+   - Go to gurt://dns.web (or your DNS server)
    - Login and navigate to your domain
    - Add a TXT record with:
      - Name: `_gurtca-challenge`
