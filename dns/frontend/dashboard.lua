@@ -74,7 +74,7 @@ end
 
 local function loadDomains()
     print('Loading domains...')
-    local response = fetch('gurt://dns.web/auth/domains?page=1&limit=100', {
+    local response = fetch('gurt://49.12.6.233:4878/auth/domains?page=1&limit=100', {
         headers = {
             Authorization = 'Bearer ' .. authToken
         }
@@ -95,7 +95,7 @@ local function checkAuth()
     
     if authToken then
         print('Found auth token, checking validity...')
-        local response = fetch('gurt://dns.web/auth/me', {
+        local response = fetch('gurt://49.12.6.233:4878/auth/me', {
             headers = {
                 Authorization = 'Bearer ' .. authToken
             }

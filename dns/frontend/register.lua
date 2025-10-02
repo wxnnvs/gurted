@@ -75,7 +75,7 @@ end
 
 local function loadTLDs()
     print('Loading available TLDs...')
-    local response = fetch('gurt://dns.web/tlds')
+    local response = fetch('gurt://49.12.6.233:4878/tlds')
     
     if response:ok() then
         tlds = response:json()
@@ -91,7 +91,7 @@ local function checkAuth()
     
     if authToken then
         print('Found auth token, checking validity...')
-        local response = fetch('gurt://dns.web/auth/me', {
+        local response = fetch('gurt://49.12.6.233:4878/auth/me', {
             headers = {
                 Authorization = 'Bearer ' .. authToken
             }
@@ -127,7 +127,7 @@ local function submitDomain(name, tld)
     hideError('domain-error')
     print('Submitting domain: ' .. name .. '.' .. tld)
     
-    local response = fetch('gurt://dns.web/domain', {
+    local response = fetch('gurt://49.12.6.233:4878/domain', {
         method = 'POST',
         headers = { 
             ['Content-Type'] = 'application/json',
@@ -157,7 +157,7 @@ end
 
 local function createInvite()
     print('Creating invite code...')
-    local response = fetch('gurt://dns.web/auth/invite', { 
+    local response = fetch('gurt://49.12.6.233:4878/auth/invite', { 
         method = 'POST',
         headers = {
             Authorization = 'Bearer ' .. authToken
@@ -184,7 +184,7 @@ local function redeemInvite(code)
     hideError('redeem-error')
     print('Redeeming invite code: ' .. code)
     
-    local response = fetch('gurt://dns.web/auth/redeem-invite', {
+    local response = fetch('gurt://49.12.6.233:4878/auth/redeem-invite', {
         method = 'POST',
         headers = { 
             ['Content-Type'] = 'application/json',
